@@ -14,7 +14,7 @@ class Menu:
             self.fil +=1
             gotoxy(self.col,self.fil);print(opcion)
         gotoxy(self.col+5,self.fil+2)
-        opc = input("Elija opcion[1...{}]:".format(len(self.opciones)))
+        opc = input("\033[1;31m"+"Elija opcion[1...{}]:".format(len(self.opciones)))
         return opc
 
 class Valida:

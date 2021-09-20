@@ -8,9 +8,9 @@ import time
 # Procesos de las Opciones del Menu Mantenimiento
 def carreras():
     borrarPantalla()
-    gotoxy(20,2);print("MANTENIMIENTO DE CARRERAS")
-    gotoxy(15,4);print("Codigo: ")
-    gotoxy(13,5);print("Descripcion Carrera: ")
+    gotoxy(20,2);print("\033[0;37m"+"MANTENIMIENTO DE CARRERAS")
+    gotoxy(15,4);print("\033[1;32m"+"Codigo: ")
+    gotoxy(13,5);print("\033[1;32m"+"Descripcion Carrera: ")
     gotoxy(33,5)
     descarrera = input()
     archiCarrera = Archivo("./datos/carrera.txt",";")
@@ -24,9 +24,9 @@ def carreras():
 
 def materias():
     borrarPantalla()
-    gotoxy(20,2);print("INGRESO DE MATERIAS")
-    gotoxy(15,4);print("Codigo: ")
-    gotoxy(12,5);print("Descripcion Materias: ")
+    gotoxy(20,2);print("\033[0;37m"+"INGRESO DE MATERIAS")
+    gotoxy(15,4);print("\033[1;32m"+"Codigo: ")
+    gotoxy(12,5);print("\033[1;32m"+"Descripcion Materias: ")
     gotoxy(33,5)
     desmateria = input()
     archiMateria = Archivo("./datos/materia.txt",";")
@@ -40,9 +40,9 @@ def materias():
 
 def periodos():
     borrarPantalla()
-    gotoxy(20,2);print("INGRESO DE PERIODOS")
-    gotoxy(15,4);print("Codigo: ")
-    gotoxy(12,5);print("Descripcion Periodos: ")
+    gotoxy(20,2);print("\033[0;37m"+"INGRESO DE PERIODOS")
+    gotoxy(15,4);print("\033[1;32m"+"Codigo: ")
+    gotoxy(12,5);print("\033[1;32m"+"Descripcion Periodos: ")
     gotoxy(33,5)
     desperiodo = input()
     archiPeriodo = Archivo("./datos/periodo.txt",";")
@@ -57,12 +57,12 @@ def periodos():
 def profesores():
     borrarPantalla()
     validar = Valida()
-    gotoxy(20,2);print("INGRESO DE PROFESORES")
-    gotoxy(15,4);print("Nombre: ")
-    gotoxy(15,5);print("Cedula: ")
-    gotoxy(15,6);print("Titulo: ")
-    gotoxy(15,7);print("Telefono: ")
-    gotoxy(15,8);print("Carrera ID[    ]: ")
+    gotoxy(20,2);print("\033[0;37m"+"INGRESO DE PROFESORES")
+    gotoxy(15,4);print("\033[1;32m"+"Nombre: ")
+    gotoxy(15,5);print("\033[1;32m"+"Cedula: ")
+    gotoxy(15,6);print("\033[1;32m"+"Titulo: ")
+    gotoxy(15,7);print("\033[1;32m"+"Telefono: ")
+    gotoxy(15,8);print("\033[1;32m"+"Carrera ID[    ]: ")
     gotoxy(23,4);nom = input()
     gotoxy(23,5);ced = input()
     gotoxy(23,6);tit = input()
@@ -97,12 +97,12 @@ def profesores():
 def estudiantes():
     borrarPantalla()
     validar = Valida()
-    gotoxy(20,2);print("INGRESO DE ESTUDIANTES ")
-    gotoxy(15,4);print("Nombre: ")
-    gotoxy(15,5);print("Cedula: ")
-    gotoxy(14,6);print("Direccion: ")
-    gotoxy(15,7);print("Telefono: ")
-    gotoxy(15,8);print("Carrera ID[    ]: ")
+    gotoxy(20,2);print("\033[0;37m"+"INGRESO DE ESTUDIANTES ")
+    gotoxy(15,4);print("\033[1;32m"+"Nombre: ")
+    gotoxy(15,5);print("\033[1;32m"+"Cedula: ")
+    gotoxy(15,6);print("\033[1;32m"+"Direccion: ")
+    gotoxy(15,7);print("\033[1;32m"+"Telefono: ")
+    gotoxy(15,8);print("\033[1;32m"+"Carrera ID[    ]: ")
     gotoxy(25,4);nom = input()
     ced=validar.solo_numeros("Error: Solo numeros",25,5)
     gotoxy(25,6);dire = input()
@@ -133,14 +133,14 @@ def estudiantes():
     else:
         gotoxy(15,11);input("Registro No fue Grabado\n presione una tecla para continuar...")
 
-def matriculas():
+def matricula():
     borrarPantalla()
     validar = Valida()
-    gotoxy(20,1);print("INGRESO DE MATRICULA ")
-    gotoxy(14,4);print("Valor: ")
-    gotoxy(14,5);print("Estudiante ID[   ]: ")
-    gotoxy(14,6);print("Carrera ID[    ]: ")
-    gotoxy(14,7);print("Periodo ID[   ]: ")
+    gotoxy(20,1);print("\033[0;37m"+"INGRESO DE MATRICULA ")
+    gotoxy(15,4);print("\033[1;32m"+"Valor: ")
+    gotoxy(15,5);print("\033[1;32m"+"Estudiante ID[   ]: ")
+    gotoxy(15,6);print("\033[1;32m"+"Carrera ID[    ]: ")
+    gotoxy(15,7);print("\033[1;32m"+"Periodo ID[   ]: ")
     val = validar.solo_numeros("Error: Solo numeros",23,4)
     lisEstudiante,entEstudiante = [], None
     while not lisEstudiante:
@@ -175,9 +175,8 @@ def matriculas():
         else:
             gotoxy(31,7);print("No existe carrera con ese codigo.")
             time.sleep(1);gotoxy(31,7);print(" "*40)
-
     gotoxy(15,9);print("Esta seguro de  Grabar El registro(s/n):")
-    gotoxy(54,10);grabar = input().lower()
+    gotoxy(56,9);grabar = input().lower()
     if grabar == "s":
         archiMatricula = Archivo("./datos/matricula.txt")
         lisMatricula = archiMatricula.leer()
@@ -195,14 +194,13 @@ def matriculas():
 def notas():
     borrarPantalla()
     validar = Valida()
-    gotoxy(20,1);print("INGRESO DE NOTAS ")
-    gotoxy(15,5);print("Periodo ID [   ]: ")
-    gotoxy(15,6);print("Estudiante ID [   ]: ")
-    gotoxy(15,7);print("Materia ID [   ]: ")
-    gotoxy(15,8);print("Profesor ID [   ]: ")
-    gotoxy(15,9);print("nota1: ")
-    gotoxy(15,10);print("nota2: ")
-
+    gotoxy(20,2);print("\033[0;37m"+"INGRESO DE NOTAS ")
+    gotoxy(15,5);print("\033[1;32m"+"Periodo ID [   ]: ")
+    gotoxy(15,6);print("\033[1;32m"+"Estudiante ID [   ]: ")
+    gotoxy(15,7);print("\033[1;32m"+"Materia ID [   ]: ")
+    gotoxy(15,8);print("\033[1;32m"+"Profesor ID [   ]: ")
+    gotoxy(15,9);print("\033[1;32m"+"nota1: ")
+    gotoxy(15,10);print("\033[1;32m"+"nota2: ")
     lisPeriodo,entPeriodo = [],None
     while not lisPeriodo:
         gotoxy(28,5);idPer = input().upper()
@@ -243,14 +241,14 @@ def notas():
         lisProfesor = archiProfesor.buscar(id)
         if lisProfesor:
             entProfesor = Profesor(lisProfesor[0],lisProfesor[1],lisProfesor[2],lisProfesor[3],lisProfesor[4],lisProfesor[5])
-            gotoxy(32,8);print(entProfesor.nombre)
+            gotoxy(38,8);print(entProfesor.nombre)
         else:
-            gotoxy(32,8);print("No existe Carrera con ese codigo[{}]:".format(id))
-            time.sleep(1);gotoxy(32,8);print(" "*40)
+            gotoxy(38,8);print("No existe Carrera con ese codigo[{}]:".format(id))
+            time.sleep(1);gotoxy(38,8);print(" "*40)
     not1=validar.solo_numeros("Error: Solo numeros",25,9)
     not2=validar.solo_numeros("Error: Solo numeros",25,10)
     gotoxy(15,12);print("Esta seguro de Grabar El registro(s/n):")
-    gotoxy(54,12);grabar = input().lower()
+    gotoxy(56,12);grabar = input().lower()
     if grabar == "s":
         archiNota = Archivo("./datos/nota.txt")
         lisNotas = archiNota.leer()
@@ -268,13 +266,13 @@ def notas():
 opc=''
 while opc !='4':
     borrarPantalla()
-    menu = Menu("Menu Principal",["1) Mantenimiento","2) Matriculacion","3) Notas","4) Salir"],20,10)
+    menu = Menu("\033[3;36m"+"Menu Principal",["\033[0;35m"+"1) Mantenimiento","2) Matriculacion","3) Notas","4) Salir"],20,10)
     opc = menu.menu()
     if opc == "1":
         opc1 = ''
         while opc1 !='6':
             borrarPantalla()
-            menu1 = Menu("Menu Mantenimiento",["1) Carrera","2) Materias","3) Periodos","4) Profesores","5) Estudiantes","6) Salir"],20,10)
+            menu1 = Menu("\033[3;36m"+"Menu Mantenimiento",["\033[0;35m"+"1) Carrera","2) Materias","3) Periodos","4) Profesores","5) Estudiantes","6) Salir"],20,10)
             opc1 = menu1.menu()
             if opc1 == "1":
                 carreras()
@@ -289,14 +287,14 @@ while opc !='4':
 
     elif opc == "2":
             borrarPantalla()
-            menu2 = Menu("Menu Matriculacion",["1) Matricula","2) Salir"],20,10)
+            menu2 = Menu("\033[3;36m"+"Menu Matriculacion",["\033[0;35m"+"1) Matricula","2) Salir"],20,10)
             opc2 = menu2.menu()
             if opc2 == "1":
-                matriculas()
+                matricula()
 
     elif opc == "3":
             borrarPantalla()
-            menu3 = Menu("Menu Notas",["1) Notas","2) Salir"],20,10)
+            menu3 = Menu("\033[3;36m"+"Menu Notas",["\033[0;35m"+"1) Notas","2) Salir"],20,10)
             opc3 = menu3.menu()
             if opc3 == "1":
                 notas()
